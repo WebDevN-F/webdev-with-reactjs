@@ -16,6 +16,7 @@ Includes Components:
 ### 2. Building React Architecture Patterns for Your Projects
 
 - [Document](https://blog.openreplay.com/react-architecture-patterns-for-your-projects)
+- [https://blog.openreplay.com/5-projects-you-need-to-build-to-get-started-with-reactjs](https://blog.openreplay.com/5-projects-you-need-to-build-to-get-started-with-reactjs)
 
 ### 3. Build A Scrolling/reading Process indicator 
 
