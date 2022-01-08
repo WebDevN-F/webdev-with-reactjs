@@ -1,54 +1,39 @@
-import React, { useState, useRef, useEffect } from 'react';
-import TodoList from "./TodoList";
-import uuidv4 from 'uuid/dist/v4';
-
-const LOCAL_STORAGE_KEY = 'todoApp.todos';
+import {useState} from 'react'
+import BottomNavigation from '@material-ui/core/BottomNavigation'
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
+import FolderIcon from '@material-ui/icons/Folder'
+import RestoreIcon from '@material-ui/icons/Restore'
+import FavoriteIcon from '@material-ui/icons/Favorite'
+import LocationOnIcon from '@material-ui/icons/LocationOn'
 
 function App() {
-  const [ todos, setTodos ] = useState([]);
-  const todoNameRef = useRef();
-
-  useEffect(() => {
-    const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    if (storedTodos) {
-      setTodos(storedTodos);
-    }
-  }, [])
-
-  useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
-  }, [todos])
-
-  function toggleTodo(id) {
-    const newTodos = [...todos];
-    const todo = newTodos.find(todo => todo.id === id);
-    todo.complete = !todo.complete;
-    setTodos(newTodos);
+  const [value, setValue] = useState('recents')
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+    console.log(newValue)
   }
-
-  function handlerAddTodo(e) {
-    const todo = todoNameRef.current.value;
-    if (todo === '') {return;}
-    console.log(todo);
-    setTodos(prevTodos => {
-      return [...prevTodos, {id: uuidv4(), name: todo, complete: false}];
-    })
-    todoNameRef.current.value = null;
-  }
-
-  function handlerCompleteTodo() {
-    const newTodos = todos.filter(todo => !todo.complete);
-    setTodos(newTodos)
-  }
-
   return (
-    <>
-    <TodoList todos={todos} toggleTodo={toggleTodo} />
-    <input ref={todoNameRef} type="text" />
-    <button onClick={handlerAddTodo}>Add Todo</button>
-    <button onClick={handlerCompleteTodo}>Clear Complete</button>
-    <div>{todos.filter(todo => !todo.complete).length} left to do</div>
-    </>
+    <article>
+      <header>
+        <h1>Hello Blog FlexBox</h1>
+      </header>
+      <main>
+        <div className="main-contents">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+        </p>
+        
+        </div>
+      </main>
+      <footer>
+        <BottomNavigation value={value} onChange={handleChange} className="footer">
+          <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
+          <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
+          <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
+          <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+        </BottomNavigation>
+      </footer>
+    </article>
   );
 }
 
