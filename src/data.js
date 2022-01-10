@@ -32,3 +32,21 @@ export const sliderData = [
         button: 'BUY NOW'
     },
 ]
+
+export const categoriesData = [
+    {
+        id: 1,
+        img: 'https://images.pexels.com/photos/8165414/pexels-photo-8165414.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        title: 'SHIRT STYLE!'
+    },
+    {
+        id: 2,
+        img: 'https://images.pexels.com/photos/10435981/pexels-photo-10435981.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        title: 'LOUNGEWEAR LOVE'
+    },
+    {
+        id: 3,
+        img: 'https://images.pexels.com/photos/7792679/pexels-photo-7792679.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        title: 'LIGHT JACKETS'
+    }
+]
