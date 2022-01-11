@@ -50,3 +50,38 @@ export const categoriesData = [
         title: 'LIGHT JACKETS'
     }
 ]
+
+export const popularProducts = [
+    {
+        id: 1,
+        img: 'https://images.pexels.com/photos/10669296/pexels-photo-10669296.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    },
+    {
+        id: 2,
+        img: 'https://images.pexels.com/photos/9725927/pexels-photo-9725927.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    },
+    {
+        id: 3,
+        img: 'https://images.pexels.com/photos/10153595/pexels-photo-10153595.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+    },
+    {
+        id: 4,
+        img: 'https://images.pexels.com/photos/1232459/pexels-photo-1232459.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+    },
+    {
+        id: 5,
+        img: 'https://images.pexels.com/photos/769733/pexels-photo-769733.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+    },
+    {
+        id: 6,
+        img: 'https://images.pexels.com/photos/10669294/pexels-photo-10669294.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+    },
+    {
+        id: 7,
+        img: 'https://images.pexels.com/photos/1484807/pexels-photo-1484807.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+    },
+    {
+        id: 8,
+        img: 'https://images.pexels.com/photos/10107961/pexels-photo-10107961.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+    }
+]
