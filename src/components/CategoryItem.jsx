@@ -30,6 +30,7 @@ const Title = styled.h3`
     font-size: 48px;
     color: coral;
     margin-bottom: 20px;
+    text-align: center;
 `
 
 const Button = styled.button`

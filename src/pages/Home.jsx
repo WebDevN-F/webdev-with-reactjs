@@ -7,9 +7,15 @@ import Products from '../components/Products'
 import NewLetter from '../components/NewLetter'
 import Footer from '../components/Footer'
 
+import styled from 'styled-components';
+
+const Container = styled.div`
+    
+`
+
 const Home = () => {
     return (
-        <div className="container">
+        <Container>
             <Announcement/>
             <Navbar />
             <Slider />
@@ -17,7 +23,7 @@ const Home = () => {
             <Products />
             <NewLetter />
             <Footer />
-        </div>
+        </Container>
     )
 }
 

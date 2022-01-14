@@ -5,6 +5,7 @@ import AddLocationIcon from '@mui/icons-material/AddLocation';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 import PhoneAndroidOutlinedIcon from '@mui/icons-material/PhoneAndroidOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import { mobile } from '../Responsive'
 
 const Container = styled.div`
     display: flex;
@@ -12,6 +13,7 @@ const Container = styled.div`
     justify-content: space-between;
     background-color: coral;
     color: #fff;
+    ${mobile({ flexDirection: "column", padding: "5px", flexWrap: "nowrap", justifyContent: "space-around" })}
 `
 
 const Left = styled.div`
