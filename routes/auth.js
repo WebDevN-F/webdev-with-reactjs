@@ -44,7 +44,7 @@ router.post('/login', async (req, res) => {
         const { ...others } = user._doc;
         delete others.password;
 
-        const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
+        const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, process.env.JWT_SECRET, { expiresIn: '1d' });
         res.header('auth-token', token).json({
             access_token: token,
             user: others
