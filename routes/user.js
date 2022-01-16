@@ -21,7 +21,7 @@ router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
 
         return res.status(200).json({
             message: 'User updated successfully',
-            user: updatedUser
+            data: updatedUser
         })
 
     } catch (err) {
@@ -40,7 +40,7 @@ router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
 
         return res.status(200).json({
             message: 'User deleted successfully',
-            user: deletedUser
+            data: deletedUser
         })
 
     } catch (err) {
@@ -50,8 +50,8 @@ router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
     }
 })
 
-// GET user
-router.get('/:id', verifyTokenAndAuthorization, async (req, res) => {
+// GET user by id
+router.get('/find/:id', verifyTokenAndAuthorization, async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -61,7 +61,47 @@ router.get('/:id', verifyTokenAndAuthorization, async (req, res) => {
 
         return res.status(200).json({
             message: 'get user info successfully',
-            user: others
+            data: others
+        })
+
+    } catch (err) {
+        res.status(500).json({
+            message: err
+        });
+    }
+})
+
+// GET ALL users with paging, sorting and filtering username or email (only user admin can get all users)
+router.get('/', verifyTokenAndAdmin, async (req, res) => {
+    if (!req.query.page) {
+        req.query.page = 1;
+    }
+    if (!req.query.pagesize) { 
+        req.query.pagesize = 100;
+    }
+    if (!req.query.q) { 
+        req.query.q = '';
+    }
+    
+    const { page, pagesize, q } = req.query;
+
+    try {
+        const users = await User.find(
+            {
+                $or: [
+                    { username: { $regex: q, $options: 'i' } },
+                    { email: { $regex: q, $options: 'i' } }
+                ],
+            }
+        )
+        .sort({ createdAt: -1 })
+        .skip((page - 1) * pagesize).limit(pagesize)
+        .select('-password')
+        .exec();
+
+        return res.status(200).json({
+            message: 'get user info successfully',
+            data: users
         })
 
     } catch (err) {

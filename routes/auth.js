@@ -14,7 +14,7 @@ router.post('/register', async (req, res) => {
         const saveduser = await newUser.save();
         res.status(201).json({
             message: 'User created successfully',
-            user: saveduser
+            data: saveduser
         });
     } catch (err) {
         res.status(500).json({
@@ -47,7 +47,7 @@ router.post('/login', async (req, res) => {
         const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, process.env.JWT_SECRET, { expiresIn: '1d' });
         res.header('auth-token', token).json({
             access_token: token,
-            user: others
+            data: others
         });
 
     } catch (err) {
