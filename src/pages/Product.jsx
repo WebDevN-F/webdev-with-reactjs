@@ -1,14 +1,6 @@
 import styled from "styled-components"
-import Navbar from '../components/Navbar'
-import Announcement from '../components/Announcement'
-import NewLetter from '../components/NewLetter'
-import Footer from '../components/Footer'
 import { Remove, Add } from "@mui/icons-material"
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
-
-const Contaienr = styled.div`
-
-`
 
 const Wrapper = styled.div`
     padding: 50px;
@@ -135,53 +127,47 @@ const Button = styled.button`
 
 const Product = () => {
     return (
-        <Contaienr>
-            <Navbar />
-            <Announcement/>
-            <Wrapper>
-                <ImgContainer>
-                    <Image src="https://images.pexels.com/photos/9637931/pexels-photo-9637931.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>Dresses</Title>
-                    <Desc>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus impedit enim aspernatur ab, nam perspiciatis a iusto facere voluptatem. Modi facilis alias omnis tempora, temporibus at sequi laboriosam cumque veritatis.
-                        Dicta pariatur vel ipsa unde est labore nam alias. Expedita, beatae nostrum? Eos, amet mollitia esse non nobis adipisci repellat ipsam iusto quis? Non mollitia enim, sed rerum porro aperiam.
-                        Explicabo dicta reprehenderit enim nobis velit reiciendis? Fugiat magnam cumque aperiam ipsa dignissimos ab eum veniam ducimus consequuntur numquam hic, sint omnis sapiente sit debitis eos libero pariatur, at quidem!
-                    </Desc>
-                    <Price>$ 100</Price>
-                    <FilterContainer>
-                        <Filter>
-                            <FilterTitle>Color:</FilterTitle>
-                            <FilterColor color="white" />
-                            <FilterColor color="black" />
-                            <FilterColor color="yellow" />
-                        </Filter>
-                        <Filter>
-                            <FilterTitle>Size:</FilterTitle>
-                            <FilterSize>
-                                <FilterSizeOption>XS</FilterSizeOption>
-                                <FilterSizeOption>S</FilterSizeOption>
-                                <FilterSizeOption>M</FilterSizeOption>
-                                <FilterSizeOption>L</FilterSizeOption>
-                                <FilterSizeOption>XL</FilterSizeOption>
-                                <FilterSizeOption>XXL</FilterSizeOption>
-                            </FilterSize>
-                        </Filter>
-                    </FilterContainer>
-                    <AddContainer>
-                        <AmountContainer>
-                            <Remove />
-                            <Amount>1</Amount>
-                            <Add />
-                        </AmountContainer>
-                        <Button><AddShoppingCartOutlinedIcon /> &nbsp; Add to cart</Button>
-                    </AddContainer>
-                </InfoContainer>
-            </Wrapper>
-            <NewLetter />
-            <Footer />
-        </Contaienr>
+        <Wrapper>
+            <ImgContainer>
+                <Image src="https://images.pexels.com/photos/9637931/pexels-photo-9637931.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+            </ImgContainer>
+            <InfoContainer>
+                <Title>Dresses</Title>
+                <Desc>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus impedit enim aspernatur ab, nam perspiciatis a iusto facere voluptatem. Modi facilis alias omnis tempora, temporibus at sequi laboriosam cumque veritatis.
+                    Dicta pariatur vel ipsa unde est labore nam alias. Expedita, beatae nostrum? Eos, amet mollitia esse non nobis adipisci repellat ipsam iusto quis? Non mollitia enim, sed rerum porro aperiam.
+                    Explicabo dicta reprehenderit enim nobis velit reiciendis? Fugiat magnam cumque aperiam ipsa dignissimos ab eum veniam ducimus consequuntur numquam hic, sint omnis sapiente sit debitis eos libero pariatur, at quidem!
+                </Desc>
+                <Price>$ 100</Price>
+                <FilterContainer>
+                    <Filter>
+                        <FilterTitle>Color:</FilterTitle>
+                        <FilterColor color="white" />
+                        <FilterColor color="black" />
+                        <FilterColor color="yellow" />
+                    </Filter>
+                    <Filter>
+                        <FilterTitle>Size:</FilterTitle>
+                        <FilterSize>
+                            <FilterSizeOption>XS</FilterSizeOption>
+                            <FilterSizeOption>S</FilterSizeOption>
+                            <FilterSizeOption>M</FilterSizeOption>
+                            <FilterSizeOption>L</FilterSizeOption>
+                            <FilterSizeOption>XL</FilterSizeOption>
+                            <FilterSizeOption>XXL</FilterSizeOption>
+                        </FilterSize>
+                    </Filter>
+                </FilterContainer>
+                <AddContainer>
+                    <AmountContainer>
+                        <Remove />
+                        <Amount>1</Amount>
+                        <Add />
+                    </AmountContainer>
+                    <Button><AddShoppingCartOutlinedIcon /> &nbsp; Add to cart</Button>
+                </AddContainer>
+            </InfoContainer>
+        </Wrapper>
     )
 }
 

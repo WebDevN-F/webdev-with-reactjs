@@ -1,14 +1,6 @@
 import styled from "styled-components"
-import Navbar from '../components/Navbar'
-import Announcement from '../components/Announcement'
-import NewLetter from '../components/NewLetter'
-import Footer from '../components/Footer'
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-
-const Container = styled.div`
-   
-`
 
 const Wrapper = styled.div``
 
@@ -173,99 +165,93 @@ const Button = styled.button`
 const Cart = () => {
     document.title = "Cart";
     return (
-        <Container>
-            <Navbar />
-            <Announcement/>
-            <Wrapper>
-                <Title>Your Bag</Title>
-                <Top>
-                    <TopBottom>CONTINUE SHOPPING</TopBottom>
-                    <TopTexts>
-                        <TopText>
-                            Shopping Bag (2)
-                        </TopText>
-                        <TopText>
-                            Your Wishlist (0)
-                        </TopText>
-                    </TopTexts>
-                    <TopBottom type="filled">CHECKOUT NOW</TopBottom>
-                </Top>
+        <Wrapper>
+            <Title>Your Bag</Title>
+            <Top>
+                <TopBottom>CONTINUE SHOPPING</TopBottom>
+                <TopTexts>
+                    <TopText>
+                        Shopping Bag (2)
+                    </TopText>
+                    <TopText>
+                        Your Wishlist (0)
+                    </TopText>
+                </TopTexts>
+                <TopBottom type="filled">CHECKOUT NOW</TopBottom>
+            </Top>
 
-                <Bottom>
-                    <Info>
-                        <Product>
-                            <ProductDetail>
-                                <Image src="https://images.pexels.com/photos/7747948/pexels-photo-7747948.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
-                                <Details>
-                                    <ProductName>
-                                        <b>Product:</b>  TEST PRODUCT NAME
-                                    </ProductName>
-                                    <ProductId>
-                                        <b>ID:</b> 123412321421
-                                    </ProductId>
-                                    <ProductColor color="yellow" />
-                                    <ProductSize><b>36.5</b></ProductSize>
-                                </Details>
-                            </ProductDetail>
-                            <PriceDetail>
-                                <ProductAmountContainer>
-                                    <AddIcon />
-                                    <ProductAmount>2</ProductAmount>
-                                    <RemoveIcon />
-                                </ProductAmountContainer>
-                                <ProductPrice>$ 30</ProductPrice>
-                            </PriceDetail>
-                        </Product>
-                        <Hr />
-                        <Product>
-                            <ProductDetail>
-                                <Image src="https://images.pexels.com/photos/10200429/pexels-photo-10200429.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
-                                <Details>
-                                    <ProductName>
-                                        <b>Product:</b>  TEST PRODUCT NAME 2
-                                    </ProductName>
-                                    <ProductId>
-                                        <b>ID:</b> 123412321421 
-                                    </ProductId>
-                                    <ProductColor color="gray" />
-                                    <ProductSize><b>36.5</b></ProductSize>
-                                </Details>
-                            </ProductDetail>
-                            <PriceDetail>
-                                <ProductAmountContainer>
-                                    <AddIcon />
-                                    <ProductAmount>1</ProductAmount>
-                                    <RemoveIcon />
-                                </ProductAmountContainer>
-                                <ProductPrice>$ 33</ProductPrice>
-                            </PriceDetail>
-                        </Product>
-                    </Info>
-                    <Summary>
-                        <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-                        <SummaryItem>
-                            <SummaryItemText>Subtotal</SummaryItemText>
-                            <SummaryItemPrice>$ 60</SummaryItemPrice>
-                        </SummaryItem>
-                        <SummaryItem>
-                            <SummaryItemText>Estimated Shipping</SummaryItemText>
-                            <SummaryItemPrice>$ 5</SummaryItemPrice>
-                        </SummaryItem>
-                        <SummaryItem>
-                            <SummaryItemText>Shipping Discount</SummaryItemText>
-                            <SummaryItemPrice>$ -5</SummaryItemPrice>
-                        </SummaryItem>
-                        <SummaryItem type="total">
-                            <SummaryItemText>Total</SummaryItemText>
-                            <SummaryItemPrice>$ 60</SummaryItemPrice>
-                        </SummaryItem>
-                        <Button>CHECKOUT NOW</Button>
-                    </Summary>
-                </Bottom>
-            </Wrapper>
-            <NewLetter />
-            <Footer />            
-        </Container>
+            <Bottom>
+                <Info>
+                    <Product>
+                        <ProductDetail>
+                            <Image src="https://images.pexels.com/photos/7747948/pexels-photo-7747948.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+                            <Details>
+                                <ProductName>
+                                    <b>Product:</b>  TEST PRODUCT NAME
+                                </ProductName>
+                                <ProductId>
+                                    <b>ID:</b> 123412321421
+                                </ProductId>
+                                <ProductColor color="yellow" />
+                                <ProductSize><b>36.5</b></ProductSize>
+                            </Details>
+                        </ProductDetail>
+                        <PriceDetail>
+                            <ProductAmountContainer>
+                                <AddIcon />
+                                <ProductAmount>2</ProductAmount>
+                                <RemoveIcon />
+                            </ProductAmountContainer>
+                            <ProductPrice>$ 30</ProductPrice>
+                        </PriceDetail>
+                    </Product>
+                    <Hr />
+                    <Product>
+                        <ProductDetail>
+                            <Image src="https://images.pexels.com/photos/10200429/pexels-photo-10200429.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+                            <Details>
+                                <ProductName>
+                                    <b>Product:</b>  TEST PRODUCT NAME 2
+                                </ProductName>
+                                <ProductId>
+                                    <b>ID:</b> 123412321421
+                                </ProductId>
+                                <ProductColor color="gray" />
+                                <ProductSize><b>36.5</b></ProductSize>
+                            </Details>
+                        </ProductDetail>
+                        <PriceDetail>
+                            <ProductAmountContainer>
+                                <AddIcon />
+                                <ProductAmount>1</ProductAmount>
+                                <RemoveIcon />
+                            </ProductAmountContainer>
+                            <ProductPrice>$ 33</ProductPrice>
+                        </PriceDetail>
+                    </Product>
+                </Info>
+                <Summary>
+                    <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+                    <SummaryItem>
+                        <SummaryItemText>Subtotal</SummaryItemText>
+                        <SummaryItemPrice>$ 60</SummaryItemPrice>
+                    </SummaryItem>
+                    <SummaryItem>
+                        <SummaryItemText>Estimated Shipping</SummaryItemText>
+                        <SummaryItemPrice>$ 5</SummaryItemPrice>
+                    </SummaryItem>
+                    <SummaryItem>
+                        <SummaryItemText>Shipping Discount</SummaryItemText>
+                        <SummaryItemPrice>$ -5</SummaryItemPrice>
+                    </SummaryItem>
+                    <SummaryItem type="total">
+                        <SummaryItemText>Total</SummaryItemText>
+                        <SummaryItemPrice>$ 60</SummaryItemPrice>
+                    </SummaryItem>
+                    <Button>CHECKOUT NOW</Button>
+                </Summary>
+            </Bottom>
+        </Wrapper>
     )
 }
 

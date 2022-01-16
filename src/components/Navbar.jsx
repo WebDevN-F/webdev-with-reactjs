@@ -5,6 +5,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import { mobile } from '../Responsive';
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   background-color: #fff;
@@ -64,6 +65,10 @@ const Logo = styled.h1`
     font-family:'Myriad Pro Bold Condensed';
     font-weight:normal;
     text-transform: uppercase;
+    > a {
+        text-decoration: none;
+        color: #000;
+    }
     ${mobile({ width: "50px"})}
 `
 
@@ -72,6 +77,10 @@ const MenuItem = styled.div`
     cursor: pointer;
     &:not(:last-child) {
         padding-right: 5px;
+    }
+    > a {
+        text-decoration: none;
+        color: #000;
     }
 `
 
@@ -90,18 +99,24 @@ const Navbar = () => {
                 </NavbarLeft>
                 <NavbarCenter>
                     <Logo>
-                        WebDev Shop
+                       <Link to="/"> WebDev Shop </Link>
                     </Logo>
                 </NavbarCenter>
                 <NavbarRight>
-                    <MenuItem>REGISTER</MenuItem>
-                    <MenuItem>SIGNIN</MenuItem>
                     <MenuItem>
+                        <Link to="/register"> REGISTER </Link>
+                    </MenuItem>
+                    <MenuItem>
+                        <Link to="/login"> LOGIN </Link>
+                    </MenuItem>
+                    <MenuItem>
+                        <Link to="/cart">
                         <IconButton>
                             <Badge badgeContent={1} color="primary">
                                 <ShoppingCartOutlinedIcon color="action" />
                             </Badge>
                         </IconButton>
+                        </Link>
                     </MenuItem>
                 </NavbarRight>
             </Wrapper>
