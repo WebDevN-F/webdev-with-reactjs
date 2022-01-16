@@ -1,0 +1,28 @@
+{
+  "name": "webdevecommerceapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebDevN-F/webdev-with-reactjs.git"
+  },
+  "author": {
+    "name": "Nguyen Van Nam",
+    "email": "nguyenvannam0411@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebDevN-F/webdev-with-reactjs/issues"
+  },
+  "homepage": "https://github.com/WebDevN-F/webdev-with-reactjs#readme",
+  "dependencies": {
+    "dotenv": "^12.0.4",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.6",
+    "nodemon": "^2.0.15"
+  }
+}
