@@ -41,11 +41,15 @@ router.post('/login', async (req, res) => {
             });
         }
 
+        const { ...others } = user._doc;
+        delete others.password;
+
         const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
         res.header('auth-token', token).json({
-            token: token,
-            user: user.username
+            access_token: token,
+            user: others
         });
+
     } catch (err) {
         res.status(500).json({
             message: err
