@@ -14,8 +14,10 @@ mongoose
 app.use(bodyParser.json());
 
 app.use('/api/users', require('./routes/user'));
-
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/products', require('./routes/product'));
+app.use('/api/cart', require('./routes/cart'));
+app.use('/api/order', require('./routes/order'));
 
 app.listen(process.env.PORT || 5000, () => {
     console.log('Ecommecer API Server running on port', process.env.PORT);
