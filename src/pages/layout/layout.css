@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+}
+
+.wrapper-page {
+  flex: 4 auto;
+  padding: 20px;
+}
