@@ -3,7 +3,85 @@ const { verifyTokenAndAuthorization, verifyTokenAndAdmin } = require('./verifyTo
 const User = require('../models/user');
 const CryptoJS = require('crypto-js');
 
-// Update user profile
+/**
+ * @openapi: 3.0.0
+ * components:
+ *  securitySchemes:
+ *   bearerAuth:
+ *    type: http
+ *    scheme: bearer
+ *    bearerFormat: JWT
+ * paths:
+ *  /api/users/{id}:
+ *    put:
+ *         security:
+ *         - bearerAuth: []
+ *         tags: 
+ *          - "users"
+ *         summary: update user
+ *         description: update user
+ *         parameters:
+ *         - name: id
+ *           in: path
+ *           description: id of user
+ *           required: true
+ *           schema:
+ *            type: string
+ *         requestBody:
+ *          required: true
+ *          content:
+ *           application/json:
+ *            schema:
+ *             type: object
+ *             properties:
+ *              username:
+ *                  type: string
+ *              password:
+ *                  type: string
+ *              email:
+ *                  type: string
+ *              isAdmin:
+ *                  type: boolean
+ *         responses:
+ *          200:
+ *           description: update user successfully
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                  type: string
+ *               data:
+ *                  properties:
+ *                     username:
+ *                      type: string
+ *                     password:
+ *                      type: string
+ *                      required: false
+ *                     email:
+ *                      type: string
+ *                     isAdmin:
+ *                      type: boolean
+ *          403:
+ *           description: Forbidden
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: string
+ *          500:
+ *           description: exception
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: object
+ */
 router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
     const { id } = req.params;
 
@@ -31,7 +109,70 @@ router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
     }
 })
 
-// DELETE user (only user admin can delete)
+/**
+ * @openapi: 3.0.0
+ * components:
+ *  securitySchemes:
+ *   bearerAuth:
+ *    type: http
+ *    scheme: bearer
+ *    bearerFormat: JWT
+ * paths:
+ *  /api/users/{id}:
+ *    delete:
+ *         security:
+ *         - bearerAuth: []
+ *         tags: 
+ *          - "users"
+ *         summary: DELETE user (only user admin can delete)
+ *         description: DELETE user (only user admin can delete)
+ *         parameters:
+ *         - name: id
+ *           in: path
+ *           description: id of user
+ *           required: true
+ *           schema:
+ *            type: string
+ *         responses:
+ *          200:
+ *           description: delete user successfully
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                  type: string
+ *               data:
+ *                  properties:
+ *                     username:
+ *                      type: string
+ *                     password:
+ *                      type: string
+ *                      required: false
+ *                     email:
+ *                      type: string
+ *                     isAdmin:
+ *                      type: boolean
+ *          403:
+ *           description: Forbidden
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: string
+ *          500:
+ *           description: exception
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: object
+ */
 router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
     const { id } = req.params;
 
@@ -50,7 +191,70 @@ router.delete('/:id', verifyTokenAndAdmin, async (req, res) => {
     }
 })
 
-// GET user by id
+/**
+ * @openapi: 3.0.0
+ * components:
+ *  securitySchemes:
+ *   bearerAuth:
+ *    type: http
+ *    scheme: bearer
+ *    bearerFormat: JWT
+ * paths:
+ *  /api/users/find/{id}:
+ *    get:
+ *         security:
+ *         - bearerAuth: []
+ *         tags: 
+ *          - "users"
+ *         summary: GET user by id
+ *         description: GET user by id
+ *         parameters:
+ *         - name: id
+ *           in: path
+ *           description: id of user
+ *           required: true
+ *           schema:
+ *            type: string
+ *         responses:
+ *          200:
+ *           description: get info user successfully
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                  type: string
+ *               data:
+ *                  properties:
+ *                     username:
+ *                      type: string
+ *                     password:
+ *                      type: string
+ *                      required: false
+ *                     email:
+ *                      type: string
+ *                     isAdmin:
+ *                      type: boolean
+ *          403:
+ *           description: Forbidden
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: string
+ *          500:
+ *           description: exception
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: object
+ */
 router.get('/find/:id', verifyTokenAndAuthorization, async (req, res) => {
     const { id } = req.params;
 
@@ -71,7 +275,84 @@ router.get('/find/:id', verifyTokenAndAuthorization, async (req, res) => {
     }
 })
 
-// GET ALL users with paging, sorting and filtering username or email (only user admin can get all users)
+/**
+ * @openapi: 3.0.0
+ * components:
+ *  securitySchemes:
+ *   bearerAuth:
+ *    type: http
+ *    scheme: bearer
+ *    bearerFormat: JWT
+ * paths:
+ *  /api/users:
+ *    get:
+ *         security:
+ *         - bearerAuth: []
+ *         tags: 
+ *          - "users"
+ *         summary: GET ALL users with paging, sorting and filtering username or email (only user admin can get all users)
+ *         description: GET ALL users with paging, sorting and filtering username or email (only user admin can get all users)
+ *         parameters:
+ *         - name: page
+ *           in: path
+ *           description: page index
+ *           required: true
+ *           schema:
+ *            type: string
+ *            example: 1
+ *         - name: pagesize
+ *           in: path
+ *           description: page size
+ *           required: true
+ *           schema:
+ *            type: string
+ *            example: 100
+*         - name: q
+ *           in: path
+ *           description: keyword search
+ *           required: true
+ *           schema:
+ *            type: string
+ *         responses:
+ *          200:
+ *           description: get list user successfully
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                  type: string
+ *               data:
+ *                  properties:
+ *                     username:
+ *                      type: string
+ *                     password:
+ *                      type: string
+ *                      required: false
+ *                     email:
+ *                      type: string
+ *                     isAdmin:
+ *                      type: boolean
+ *          403:
+ *           description: Forbidden
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: string
+ *          500:
+ *           description: exception
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: object
+ */
 router.get('/', verifyTokenAndAdmin, async (req, res) => {
     if (!req.query.page) {
         req.query.page = 1;
@@ -111,7 +392,58 @@ router.get('/', verifyTokenAndAdmin, async (req, res) => {
     }
 })
 
-// get user stats
+/**
+ * @openapi: 3.0.0
+ * components:
+ *  securitySchemes:
+ *   bearerAuth:
+ *    type: http
+ *    scheme: bearer
+ *    bearerFormat: JWT
+ * paths:
+ *  /api/users/stats:
+ *    get:
+ *         security:
+ *         - bearerAuth: []
+ *         tags: 
+ *          - "users"
+ *         summary: get user stats
+ *         description: get user stats
+ *         responses:
+ *          200:
+ *           description: get info user stats successfully
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                  type: string
+ *               data:
+ *                  properties:
+ *                     _id:
+ *                      type: object
+ *                     count:
+ *                      type: number
+ *          403:
+ *           description: Forbidden
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: string
+ *          500:
+ *           description: exception
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: object
+ */
 router.get('/stats', verifyTokenAndAdmin, async (req, res) => {
     const date = new Date();
     const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));

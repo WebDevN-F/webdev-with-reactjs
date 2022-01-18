@@ -28,6 +28,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.6",
     "nodemon": "^2.0.15",
-    "stripe": "^8.197.0"
+    "stripe": "^8.197.0",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.3.0"
   }
 }

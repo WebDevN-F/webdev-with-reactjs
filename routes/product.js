@@ -2,7 +2,101 @@ const router = require('express').Router();
 const Product = require('../models/product');
 const { verifyTokenAndAuthorization } = require('./verifyToken');
 
-// Create new product
+/**
+ * @openapi: 3.0.0
+ * components:
+ *  securitySchemes:
+ *   bearerAuth:
+ *    type: http
+ *    scheme: bearer
+ *    bearerFormat: JWT
+ * paths:
+ *  /api/products:
+ *    post:
+ *         security:
+ *         - bearerAuth: []
+ *         tags: 
+ *          - "products"
+ *         summary: // Create new product
+ *         description: // Create new product
+ *         requestBody:
+ *          required: true
+ *          content:
+ *           application/json:
+ *            schema:
+ *             type: object
+ *             properties:
+ *              title:
+ *                type: string
+ *              desc:
+ *                type: string
+ *              img:
+ *               type: string
+ *              categories:
+ *               type: array
+ *               items:
+ *                type: string
+ *              size:
+ *               type: string
+ *              color:
+ *               type: string
+ *              price:
+ *               type: number
+ *         responses:
+ *          200:
+ *           description: create product successfully
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                  type: string
+ *               data:
+ *                  properties:
+ *                    title:
+ *                      type: string
+ *                    desc:
+ *                      type: string
+ *                    img:
+ *                      type: string
+ *                    categories:
+ *                       type: array
+ *                       items:
+ *                          type: string
+ *                    size:
+ *                       type: string
+ *                    color:
+ *                       type: string
+ *                    price:
+ *                       type: number
+ *                    _id:
+ *                       type: string
+ *                    createdAt:
+ *                       type: string
+ *                       format: date-time
+ *                    updatedAt:
+ *                       type: string
+ *                       format: date-time
+ *          403:
+ *           description: Forbidden
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: string
+ *          500:
+ *           description: exception
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: object
+ */
 router.post('/', verifyTokenAndAuthorization, async (req, res) => {
     const newProduct = new Product(req.body);
 
@@ -19,7 +113,107 @@ router.post('/', verifyTokenAndAuthorization, async (req, res) => {
     }
 })
 
-// Update product
+/**
+ * @openapi: 3.0.0
+ * components:
+ *  securitySchemes:
+ *   bearerAuth:
+ *    type: http
+ *    scheme: bearer
+ *    bearerFormat: JWT
+ * paths:
+ *  /api/products/{id}:
+ *    put:
+ *         security:
+ *         - bearerAuth: []
+ *         tags: 
+ *          - "products"
+ *         summary: // Update product
+ *         description: // Update product
+ *         parameters:
+ *         - in: path
+ *           name: id
+ *           schema:
+ *           type: string
+ *           required: true
+ *         requestBody:
+ *          required: true
+ *          content:
+ *           application/json:
+ *            schema:
+ *             type: object
+ *             properties:
+ *              title:
+ *                type: string
+ *              desc:
+ *                type: string
+ *              img:
+ *               type: string
+ *              categories:
+ *               type: array
+ *               items:
+ *                type: string
+ *              size:
+ *               type: string
+ *              color:
+ *               type: string
+ *              price:
+ *               type: number
+ *         responses:
+ *          200:
+ *           description: update product successfully
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                  type: string
+ *               data:
+ *                  properties:
+ *                    title:
+ *                      type: string
+ *                    desc:
+ *                      type: string
+ *                    img:
+ *                      type: string
+ *                    categories:
+ *                       type: array
+ *                       items:
+ *                          type: string
+ *                    size:
+ *                       type: string
+ *                    color:
+ *                       type: string
+ *                    price:
+ *                       type: number
+ *                    _id:
+ *                       type: string
+ *                    createdAt:
+ *                       type: string
+ *                       format: date-time
+ *                    updatedAt:
+ *                       type: string
+ *                       format: date-time
+ *          403:
+ *           description: Forbidden
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: string
+ *          500:
+ *           description: exception
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: object
+ */
 router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
     const { id } = req.params;
 
@@ -40,7 +234,84 @@ router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
     }
 })
 
-// DELETE Product (only user admin can delete)
+/**
+ * @openapi: 3.0.0
+ * components:
+ *  securitySchemes:
+ *   bearerAuth:
+ *    type: http
+ *    scheme: bearer
+ *    bearerFormat: JWT
+ * paths:
+ *  /api/products/{id}:
+ *    delete:
+ *         security:
+ *         - bearerAuth: []
+ *         tags: 
+ *          - "products"
+ *         summary: // DELETE Product (only user admin can delete)
+ *         description: // DELETE Product (only user admin can delete)
+ *         parameters:
+ *         - in: path
+ *           name: id
+ *           schema:
+ *           type: string
+ *           required: true
+ *         responses:
+ *          200:
+ *           description: delete product successfully
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                  type: string
+ *               data:
+ *                  properties:
+ *                    title:
+ *                      type: string
+ *                    desc:
+ *                      type: string
+ *                    img:
+ *                      type: string
+ *                    categories:
+ *                       type: array
+ *                       items:
+ *                          type: string
+ *                    size:
+ *                       type: string
+ *                    color:
+ *                       type: string
+ *                    price:
+ *                       type: number
+ *                    _id:
+ *                       type: string
+ *                    createdAt:
+ *                       type: string
+ *                       format: date-time
+ *                    updatedAt:
+ *                       type: string
+ *                       format: date-time
+ *          403:
+ *           description: Forbidden
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: string
+ *          500:
+ *           description: exception
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: object
+ */
 router.delete('/:id', verifyTokenAndAuthorization, async (req, res) => {
     const { id } = req.params;
 
@@ -59,7 +330,84 @@ router.delete('/:id', verifyTokenAndAuthorization, async (req, res) => {
     }
 })
 
-// GET product by id
+/**
+ * @openapi: 3.0.0
+ * components:
+ *  securitySchemes:
+ *   bearerAuth:
+ *    type: http
+ *    scheme: bearer
+ *    bearerFormat: JWT
+ * paths:
+ *  /api/products/find/{id}:
+ *    get:
+ *         security:
+ *         - bearerAuth: []
+ *         tags: 
+ *          - "products"
+ *         summary: // GET product by id
+ *         description: // GET product by id
+ *         parameters:
+ *         - in: path
+ *           name: id
+ *           schema:
+ *           type: string
+ *           required: true
+ *         responses:
+ *          200:
+ *           description: get info product successfully
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                  type: string
+ *               data:
+ *                  properties:
+ *                    title:
+ *                      type: string
+ *                    desc:
+ *                      type: string
+ *                    img:
+ *                      type: string
+ *                    categories:
+ *                       type: array
+ *                       items:
+ *                          type: string
+ *                    size:
+ *                       type: string
+ *                    color:
+ *                       type: string
+ *                    price:
+ *                       type: number
+ *                    _id:
+ *                       type: string
+ *                    createdAt:
+ *                       type: string
+ *                       format: date-time
+ *                    updatedAt:
+ *                       type: string
+ *                       format: date-time
+ *          403:
+ *           description: Forbidden
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: string
+ *          500:
+ *           description: exception
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: object
+ */
 router.get('/find/:id', async (req, res) => {
     const { id } = req.params;
 
@@ -78,7 +426,100 @@ router.get('/find/:id', async (req, res) => {
     }
 })
 
-// Get all products with pagination, sort and filter
+/**
+ * @openapi: 3.0.0
+ * components:
+ *  securitySchemes:
+ *   bearerAuth:
+ *    type: http
+ *    scheme: bearer
+ *    bearerFormat: JWT
+ * paths:
+ *  /api/products/find/{id}:
+ *    get:
+ *         security:
+ *         - bearerAuth: []
+ *         tags: 
+ *          - "products"
+ *         summary: // Get all products with pagination, sort and filter
+ *         description: // Get all products with pagination, sort and filter
+ *         parameters:
+ *         - in: path
+ *           name: page
+ *           schema:
+ *           type: string
+ *           required: true
+ *           example: 1
+ *         - in: path
+ *           name: pagesize
+ *           schema:
+ *           type: string
+ *           required: true
+ *           example: 1
+ *         - in: path
+ *           name: q
+ *           schema:
+ *           type: string
+ *           required: true
+ *         - in: path
+ *           name: category
+ *           schema:
+ *           type: string
+ *         responses:
+ *          200:
+ *           description: get list products successfully
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                  type: string
+ *               data:
+ *                  properties:
+ *                    title:
+ *                      type: string
+ *                    desc:
+ *                      type: string
+ *                    img:
+ *                      type: string
+ *                    categories:
+ *                       type: array
+ *                       items:
+ *                          type: string
+ *                    size:
+ *                       type: string
+ *                    color:
+ *                       type: string
+ *                    price:
+ *                       type: number
+ *                    _id:
+ *                       type: string
+ *                    createdAt:
+ *                       type: string
+ *                       format: date-time
+ *                    updatedAt:
+ *                       type: string
+ *                       format: date-time
+ *          403:
+ *           description: Forbidden
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: string
+ *          500:
+ *           description: exception
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: object
+ */
 router.get('/', async (req, res) => {
     if (!req.query.page) {
         req.query.page = 1;
@@ -138,7 +579,63 @@ router.get('/', async (req, res) => {
     }
 })
 
-// get product stats
+/**
+ * @openapi: 3.0.0
+ * components:
+ *  securitySchemes:
+ *   bearerAuth:
+ *    type: http
+ *    scheme: bearer
+ *    bearerFormat: JWT
+ * paths:
+ *  /api/products/stats:
+ *    get:
+ *         security:
+ *         - bearerAuth: []
+ *         tags: 
+ *          - "products"
+ *         summary: // get product stats
+ *         description: // get product stats
+ *         responses:
+ *          200:
+ *           description: get product stats successfully
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                  type: string
+ *               data:
+ *                  properties:
+ *                    _id:
+ *                       type: object
+ *                       properties:
+ *                        year:
+ *                          type: number
+ *                        month:
+ *                          type: number
+ *                    count:
+ *                       type: number
+ *          403:
+ *           description: Forbidden
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: string
+ *          500:
+ *           description: exception
+ *           content:
+ *            application/json:
+ *             schema:
+ *              type: object
+ *              properties:
+ *               message:
+ *                type: object
+ */
 router.get('/stats', async (req, res) => {
     const date = new Date();
     const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
