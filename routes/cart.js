@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { verifyTokenAndAuthorization, verifyTokenAndAdmin } = require('./verifyToken');
-const Cart = require('../models/cart');
+const Cart = require('./models/cart');
 
 /**
  * @openapi: 3.0.0

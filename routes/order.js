@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { verifyTokenAndAuthorization, verifyTokenAndAdmin } = require('./verifyToken');
-const Order = require('../models/order');
+const Order = require('./models/order');
 
 /**
  * @openapi: 3.0.0
