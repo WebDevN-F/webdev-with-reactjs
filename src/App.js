@@ -9,8 +9,8 @@ const HomePage = React.lazy(() => import('./pages/home/home'));
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route path="/" index element={
+      <Route path="/webdev-with-reactjs" element={<Layout />}>
+        <Route index element={
           <React.Suspense fallback={<>loading...</>}>
             <HomePage />
           </React.Suspense>}
