@@ -48,7 +48,7 @@ mongoose
 app.use(bodyParser.json());
 
 app.use(cors({
-    origin: [process.env.CLIENT_URL],
+    origin: process.env.CLIENT_URL ? process.env.CLIENT_URL.split(', ') : ['http://localhost:3000'],
     credentials: true, 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', 
     exposedHeaders: 'web-auth-token', 
