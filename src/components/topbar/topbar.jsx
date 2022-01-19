@@ -3,6 +3,7 @@ import './topbar.css';
 import { IconButton, Badge, Avatar } from '@mui/material';
 import { Language, NotificationsNone, Settings } from '@mui/icons-material';
 import { deepOrange } from '@mui/material/colors';
+import { Link } from 'react-router-dom';
 
 const Topbar = () => {
     function notificationsLabel(count) {
@@ -19,9 +20,9 @@ const Topbar = () => {
         <div className="topbar">
             <div className="topbarWrapper">
                 <div className="topbarLeft">
-                    <span className="logo">
+                    <Link to="/webdev-with-reactjs" className="logo">
                         webeadmin
-                    </span>
+                    </Link>
                 </div>
                 <div className="topbarRight">
                     <IconButton aria-label={notificationsLabel(100)}>

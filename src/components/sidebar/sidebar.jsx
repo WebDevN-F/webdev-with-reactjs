@@ -1,6 +1,7 @@
 import React from 'react'
 import './sidebar.css';
 import { LineStyle, Timeline, Settings } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
@@ -94,6 +95,12 @@ const Sidebar = () => {
                             <a href="#">Settings</a>
                         </li>
                     </ul>
+                </div>
+
+                <div className="sidebar-footer bottom">
+                    <div className="sidebar-footer-item">
+                        <Link to="/webdev-with-reactjs/about">About</Link>
+                    </div>
                 </div>
             </div>
         </div>

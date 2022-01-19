@@ -1,24 +1,28 @@
 import React from 'react';
-import {
-  Routes, Route
-} from "react-router-dom";
-import Layout from './pages/layout/layout';
-
+import { Routes, Route } from "react-router-dom";
+const Layout = React.lazy(() => import('./pages/layout/layout'));
 const HomePage = React.lazy(() => import('./pages/home/home'));
+const AboutPage = React.lazy(() => import('./pages/about/about'));
 
 function App() {
   return (
-    <Routes>
-      <Route path="/webdev-with-reactjs" element={<Layout />}>
-        <Route index element={
-          <React.Suspense fallback={<>loading...</>}>
-            <HomePage />
-          </React.Suspense>}
-        />
-        {/* append more routes here */}
-        <Route path="*" element={<Notfound />} />
-      </Route>
-    </Routes>
+    <React.Suspense fallback={<Loading />}>
+      <Routes>
+        <Route path="/webdev-with-reactjs" element={<Layout />}>
+          <Route index element={
+            <React.Suspense fallback={<ProcessbarLoading />}>
+              <HomePage />
+            </React.Suspense>}
+          />
+          <Route path="/webdev-with-reactjs/about" element={
+            <React.Suspense fallback={<ProcessbarLoading />}>
+              <AboutPage />
+            </React.Suspense>}
+          />
+          <Route path="*" element={<Notfound />} />
+        </Route>
+      </Routes>
+    </React.Suspense>
   );
 }
 
@@ -30,5 +34,22 @@ const Notfound = () => {
       <h1>404</h1>
       <p>Sorry, the page you are looking for does not exist.</p>
     </div>
+  );
+}
+
+const Loading = () => {
+  return (
+    <div className="loading">
+      <h1>Loading...</h1>
+    </div>
+  );
+}
+
+const ProcessbarLoading = () => {
+  return (
+    <>
+      <div className="processbar-loading"></div>
+      <span>loading...</span>
+    </>
   );
 }

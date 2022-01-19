@@ -1,8 +1,18 @@
 .container {
   display: flex;
+  position: relative;
 }
 
 .wrapper-page {
-  flex: 4 auto;
+  flex: 5;
   padding: 20px;
+}
+
+.processbar-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: radial-gradient(red, transparent);
 }

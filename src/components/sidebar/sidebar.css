@@ -63,3 +63,16 @@
     text-decoration: none;
     text-align: left;
 }
+
+.sidebar-footer {
+    background-color: #fcfcfc;
+    border-top: 1px solid #f0f0f0;
+}
+
+.sidebar-footer a {
+    padding: 10px 20px;
+    color: #555;
+    display: block;
+    text-decoration: none;
+    text-align: left;
+}
