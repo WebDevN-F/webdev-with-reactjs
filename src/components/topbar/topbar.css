@@ -28,3 +28,31 @@
     display: flex;
     align-items: center;
 }
+
+.topbarRight .topbar-button {
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.topbarLeft {
+    flex: 1;
+}
+
+.topbarCenter {
+    margin-right: auto;
+    flex: 4;
+}
+
+.topbarRight .topbar-button:not(:last-child) {
+    margin-right: 10px;
+}
+
+.topbarCenter input {
+    font-size: 18px;
+    padding: 10px 20px;
+    width: 30vw;
+    border: 0.5px solid #ccc;
+    border-radius: 5px;
+}
