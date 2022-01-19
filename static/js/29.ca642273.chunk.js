@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwebdev_admin=self.webpackChunkwebdev_admin||[]).push([[29],{2029:function(e,n,u){u.r(n);u(2791);var a=u(184);n.default=function(){return(0,a.jsx)("div",{children:"About Nguyen Van Nam"})}}}]);
+//# sourceMappingURL=29.ca642273.chunk.js.map
