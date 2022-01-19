@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkwebdev_admin=self.webpackChunkwebdev_admin||[]).push([[889],{1889:function(e,n,i){i.r(n);i(2791);var c=i(3504),d=i(184);n.default=function(){return(0,d.jsxs)("div",{children:[(0,d.jsx)("h1",{children:"Login page"}),(0,d.jsx)(c.rU,{to:"/",children:"Back Home"})]})}}}]);
-//# sourceMappingURL=889.22ba8430.chunk.js.map
