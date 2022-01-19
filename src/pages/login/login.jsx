@@ -7,7 +7,7 @@ const Login = () => {
         <div>
             <h1>Login page</h1>
 
-            <Link to="/webdev-with-reactjs/">Back Home</Link>
+            <Link to={process.env.PUBLIC_URL + '/'}>Back Home</Link>
         </div>
     )
 }

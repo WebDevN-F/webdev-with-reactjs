@@ -20,7 +20,7 @@ const Topbar = () => {
         <div className="topbar">
             <div className="topbarWrapper">
                 <div className="topbarLeft">
-                    <Link to="/webdev-with-reactjs" className="logo">
+                    <Link to={process.env.PUBLIC_URL + '/'} className="logo">
                         webeadmin
                     </Link>
                 </div>

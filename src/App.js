@@ -6,23 +6,24 @@ const AboutPage = React.lazy(() => import('./pages/about/about'));
 const LoginPage = React.lazy(() => import('./pages/login/login'));
 
 function App() {
+  console.log(process.env.PUBLIC_URL)
   return (
     <React.Suspense fallback={<Loading />}>
       <Routes>
-        <Route path="/webdev-with-reactjs" element={<Layout />}>
+        <Route path={process.env.PUBLIC_URL} element={<Layout />}>
           <Route index element={
             <React.Suspense fallback={<ProcessbarLoading />}>
               <HomePage />
             </React.Suspense>}
           />
-          <Route path="/webdev-with-reactjs/about" element={
+          <Route path={process.env.PUBLIC_URL + '/about'} element={
             <React.Suspense fallback={<ProcessbarLoading />}>
               <AboutPage />
             </React.Suspense>}
           />
           <Route path="*" element={<Notfound />} />
         </Route>
-        <Route path="/webdev-with-reactjs/login" element={<LoginPage />} />
+        <Route path={process.env.PUBLIC_URL + '/login'} element={<LoginPage />} />
       </Routes>
     </React.Suspense>
   );

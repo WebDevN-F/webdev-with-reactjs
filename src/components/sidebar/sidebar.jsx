@@ -12,15 +12,15 @@ const Sidebar = () => {
                     <ul className="sidebar-menu-list">
                         <li className="sidebar-menu-item">
                             <LineStyle className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs">Home</Link>
+                            <Link to={process.env.PUBLIC_URL + '/'}>Home</Link>
                         </li>
                         <li className="sidebar-menu-item">
                             <Timeline className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs/timeline">Timeline</Link>
+                            <Link to={process.env.PUBLIC_URL + '/timeline'}>Timeline</Link>
                         </li>
                         <li className="sidebar-menu-item">
                             <Settings className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs/settings">Settings</Link>
+                            <Link to={process.env.PUBLIC_URL + '/settings'}>Settings</Link>
                         </li>
                     </ul>
                 </div>
@@ -28,17 +28,17 @@ const Sidebar = () => {
                 <div className="sidebar-menu">
                     <h3 className="sidebar-menu-title">Quick Menu</h3>
                     <ul className="sidebar-menu-list">
-                    <li className="sidebar-menu-item">
+                        <li className="sidebar-menu-item">
                             <LineStyle className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs">Home</Link>
+                            <Link to={process.env.PUBLIC_URL + '/'}>Home</Link>
                         </li>
                         <li className="sidebar-menu-item">
                             <Timeline className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs/timeline">Timeline</Link>
+                            <Link to={process.env.PUBLIC_URL + '/timeline'}>Timeline</Link>
                         </li>
                         <li className="sidebar-menu-item">
                             <Settings className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs/settings">Settings</Link>
+                            <Link to={process.env.PUBLIC_URL + '/settings'}>Settings</Link>
                         </li>
                     </ul>
                 </div>
@@ -46,17 +46,17 @@ const Sidebar = () => {
                 <div className="sidebar-menu">
                     <h3 className="sidebar-menu-title">Notification</h3>
                     <ul className="sidebar-menu-list">
-                    <li className="sidebar-menu-item">
+                        <li className="sidebar-menu-item">
                             <LineStyle className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs">Home</Link>
+                            <Link to={process.env.PUBLIC_URL + '/'}>Home</Link>
                         </li>
                         <li className="sidebar-menu-item">
                             <Timeline className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs/timeline">Timeline</Link>
+                            <Link to={process.env.PUBLIC_URL + '/timeline'}>Timeline</Link>
                         </li>
                         <li className="sidebar-menu-item">
                             <Settings className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs/settings">Settings</Link>
+                            <Link to={process.env.PUBLIC_URL + '/settings'}>Settings</Link>
                         </li>
                     </ul>
                 </div>
@@ -64,17 +64,17 @@ const Sidebar = () => {
                 <div className="sidebar-menu">
                     <h3 className="sidebar-menu-title">Staff</h3>
                     <ul className="sidebar-menu-list">
-                    <li className="sidebar-menu-item">
+                        <li className="sidebar-menu-item">
                             <LineStyle className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs">Home</Link>
+                            <Link to={process.env.PUBLIC_URL + '/'}>Home</Link>
                         </li>
                         <li className="sidebar-menu-item">
                             <Timeline className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs/timeline">Timeline</Link>
+                            <Link to={process.env.PUBLIC_URL + '/timeline'}>Timeline</Link>
                         </li>
                         <li className="sidebar-menu-item">
                             <Settings className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs/settings">Settings</Link>
+                            <Link to={process.env.PUBLIC_URL + '/settings'}>Settings</Link>
                         </li>
                     </ul>
                 </div>
@@ -84,22 +84,22 @@ const Sidebar = () => {
                     <ul className="sidebar-menu-list">
                         <li className="sidebar-menu-item">
                             <LineStyle className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs">Home</Link>
+                            <Link to={process.env.PUBLIC_URL + '/'}>Home</Link>
                         </li>
                         <li className="sidebar-menu-item">
                             <Timeline className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs/timeline">Timeline</Link>
+                            <Link to={process.env.PUBLIC_URL + '/timeline'}>Timeline</Link>
                         </li>
                         <li className="sidebar-menu-item">
                             <Settings className="sidebar-menu-icon" />
-                            <Link to="/webdev-with-reactjs/settings">Settings</Link>
+                            <Link to={process.env.PUBLIC_URL + '/settings'}>Settings</Link>
                         </li>
                     </ul>
                 </div>
 
                 <div className="sidebar-footer bottom">
                     <div className="sidebar-footer-item">
-                        <Link to="/webdev-with-reactjs/about">About</Link>
+                        <Link to={process.env.PUBLIC_URL + '/about'}>About</Link>
                     </div>
                 </div>
             </div>
