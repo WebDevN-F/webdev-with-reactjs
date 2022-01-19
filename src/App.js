@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 const Layout = React.lazy(() => import('./pages/layout/layout'));
 const HomePage = React.lazy(() => import('./pages/home/home'));
 const AboutPage = React.lazy(() => import('./pages/about/about'));
+const LoginPage = React.lazy(() => import('./pages/login/login'));
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           />
           <Route path="*" element={<Notfound />} />
         </Route>
+        <Route path="/webdev-with-reactjs/login" element={<LoginPage />} />
       </Routes>
     </React.Suspense>
   );
