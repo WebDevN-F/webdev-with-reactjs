@@ -12,7 +12,9 @@ const Sidebar = () => {
                     <ul className="sidebar-menu-list">
                         <li className="sidebar-menu-item">
                             <LineStyle className="sidebar-menu-icon" />
-                            <Link to={process.env.PUBLIC_URL + '/'}>Home</Link>
+                            <Link to={process.env.PUBLIC_URL + '/'}>
+                                Home
+                            </Link>
                         </li>
                         <li className="sidebar-menu-item">
                             <Timeline className="sidebar-menu-icon" />
@@ -79,27 +81,11 @@ const Sidebar = () => {
                     </ul>
                 </div>
 
-                <div className="sidebar-menu">
-                    <h3 className="sidebar-menu-title">Settings</h3>
-                    <ul className="sidebar-menu-list">
-                        <li className="sidebar-menu-item">
-                            <LineStyle className="sidebar-menu-icon" />
-                            <Link to={process.env.PUBLIC_URL + '/'}>Home</Link>
-                        </li>
-                        <li className="sidebar-menu-item">
-                            <Timeline className="sidebar-menu-icon" />
-                            <Link to={process.env.PUBLIC_URL + '/timeline'}>Timeline</Link>
-                        </li>
-                        <li className="sidebar-menu-item">
-                            <Settings className="sidebar-menu-icon" />
-                            <Link to={process.env.PUBLIC_URL + '/settings'}>Settings</Link>
-                        </li>
-                    </ul>
-                </div>
-
                 <div className="sidebar-footer bottom">
                     <div className="sidebar-footer-item">
-                        <Link to={process.env.PUBLIC_URL + '/about'}>About</Link>
+                        <Link to={process.env.PUBLIC_URL + '/about'}>0928351036.</Link>
+                        <hr className="hr" />
+                        <span>© { new Date().getFullYear() }</span>
                     </div>
                 </div>
             </div>
