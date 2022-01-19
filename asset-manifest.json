@@ -1,24 +1,26 @@
 {
   "files": {
-    "main.js": "/webdev-with-reactjs/static/js/main.8e415522.js",
+    "main.js": "/webdev-with-reactjs/static/js/main.a7489156.js",
     "static/css/607.f9febb33.chunk.css": "/webdev-with-reactjs/static/css/607.f9febb33.chunk.css",
-    "static/js/607.26a06873.chunk.js": "/webdev-with-reactjs/static/js/607.26a06873.chunk.js",
+    "static/js/607.0da10d09.chunk.js": "/webdev-with-reactjs/static/js/607.0da10d09.chunk.js",
     "static/css/274.d0def0a9.chunk.css": "/webdev-with-reactjs/static/css/274.d0def0a9.chunk.css",
     "static/js/274.350b6444.chunk.js": "/webdev-with-reactjs/static/js/274.350b6444.chunk.js",
     "static/js/29.ca642273.chunk.js": "/webdev-with-reactjs/static/js/29.ca642273.chunk.js",
+    "static/js/889.9baf7421.chunk.js": "/webdev-with-reactjs/static/js/889.9baf7421.chunk.js",
     "static/js/189.7ca9b88b.chunk.js": "/webdev-with-reactjs/static/js/189.7ca9b88b.chunk.js",
     "static/js/103.891b5bb8.chunk.js": "/webdev-with-reactjs/static/js/103.891b5bb8.chunk.js",
     "index.html": "/webdev-with-reactjs/index.html",
-    "main.8e415522.js.map": "/webdev-with-reactjs/static/js/main.8e415522.js.map",
+    "main.a7489156.js.map": "/webdev-with-reactjs/static/js/main.a7489156.js.map",
     "607.f9febb33.chunk.css.map": "/webdev-with-reactjs/static/css/607.f9febb33.chunk.css.map",
-    "607.26a06873.chunk.js.map": "/webdev-with-reactjs/static/js/607.26a06873.chunk.js.map",
+    "607.0da10d09.chunk.js.map": "/webdev-with-reactjs/static/js/607.0da10d09.chunk.js.map",
     "274.d0def0a9.chunk.css.map": "/webdev-with-reactjs/static/css/274.d0def0a9.chunk.css.map",
     "274.350b6444.chunk.js.map": "/webdev-with-reactjs/static/js/274.350b6444.chunk.js.map",
     "29.ca642273.chunk.js.map": "/webdev-with-reactjs/static/js/29.ca642273.chunk.js.map",
+    "889.9baf7421.chunk.js.map": "/webdev-with-reactjs/static/js/889.9baf7421.chunk.js.map",
     "189.7ca9b88b.chunk.js.map": "/webdev-with-reactjs/static/js/189.7ca9b88b.chunk.js.map",
     "103.891b5bb8.chunk.js.map": "/webdev-with-reactjs/static/js/103.891b5bb8.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.8e415522.js"
+    "static/js/main.a7489156.js"
   ]
 }
