@@ -4,16 +4,17 @@ import PaidIcon from '@mui/icons-material/Paid';
 import SyncIcon from '@mui/icons-material/Sync';
 import { IconButton } from '@mui/material';
 import PendingOutlinedIcon from '@mui/icons-material/PendingOutlined';
+import { red, green } from '@mui/material/colors';
 
 const WidgetLg = () => {
     const Button = ({ type }) => {
         switch (type) {
             case 'sync':
-                return <IconButton><SyncIcon /></IconButton>
+                return <IconButton style={{color: green[500]}}><SyncIcon /></IconButton>
             case 'paid':
                 return <IconButton><PaidIcon /></IconButton>
             case 'pending':
-                return <IconButton><PendingOutlinedIcon /></IconButton>
+                return <IconButton style={{color: red[500]}}><PendingOutlinedIcon /></IconButton>
             default:
                 return null
         }
