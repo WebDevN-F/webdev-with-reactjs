@@ -4,6 +4,7 @@ const Layout = React.lazy(() => import('./pages/layout/layout'));
 const HomePage = React.lazy(() => import('./pages/home/home'));
 const AboutPage = React.lazy(() => import('./pages/about/about'));
 const LoginPage = React.lazy(() => import('./pages/login/login'));
+const UserPage = React.lazy(() => import('./pages/user/user'));
 
 function App() {
   console.log(process.env.PUBLIC_URL)
@@ -19,6 +20,11 @@ function App() {
           <Route path={process.env.PUBLIC_URL + '/about'} element={
             <React.Suspense fallback={<ProcessbarLoading />}>
               <AboutPage />
+            </React.Suspense>}
+          />
+          <Route path={process.env.PUBLIC_URL + '/user'} element={
+            <React.Suspense fallback={<ProcessbarLoading />}>
+              <UserPage />
             </React.Suspense>}
           />
           <Route path="*" element={<Notfound />} />

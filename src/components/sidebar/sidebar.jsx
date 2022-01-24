@@ -40,7 +40,7 @@ const Sidebar = () => {
                     <ul className="sidebar-menu-list">
                         <li className="sidebar-menu-item">
                             <PersonOutlineIcon className="sidebar-menu-icon" />
-                            <Link to={process.env.PUBLIC_URL + '/'}>Users</Link>
+                            <Link to={process.env.PUBLIC_URL + '/user'}>Users</Link>
                         </li>
                         <li className="sidebar-menu-item">
                             <StorefrontIcon className="sidebar-menu-icon" />
