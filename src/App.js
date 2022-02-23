@@ -23,7 +23,7 @@ function App() {
   const onAddTask = (task) => {
     setTasks((prevTasks) => {
       const newTasks = [...prevTasks];
-      task['id'] = Math.random();
+      task['id'] = Math.floor(Math.random() * 1000)+1;
       newTasks.push(task);
       return newTasks;
     })
