@@ -31,7 +31,7 @@ function App() {
   return (
     <>
       <div className="container-sm main border border-primary border-3 rounded-3 mt-4">
-        <Header title={`Task Tracker React v.${React.version}`} onAdd={addTask} />
+        <Header title={`Task Tracker React v.${React.version}`} onAdd={addTask} showAddTask={showAddTask} />
         { showAddTask && <AddTask onAddTask={onAddTask} /> }
         { tasks.length > 0 ? <Tasks tasks={tasks} onRemoveTask={removeTask} onReminerTask={toggleTask} /> : <h3 className="text-center p-3">No Tasks</h3> }
         <footer className="d-flex justify-content-center mt-2">
