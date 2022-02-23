@@ -6,7 +6,7 @@ const Header = ({ title, onAdd, showAddTask }) => {
     return (
         <header className="d-flex justify-content-between align-items-center p-3 border-bottom border-primary mb-2">
             <h3 className="fs-3">{title}</h3>
-            <Button text={showAddTask ? 'Close' : 'Add'} onAdd={onAdd} color={showAddTask ? ButtonColor.danger : ButtonColor.primary} onAdd={onAdd}/>
+            <Button text={showAddTask ? 'Close' : 'Add'} color={showAddTask ? ButtonColor.danger : ButtonColor.primary} onAdd={onAdd}/>
         </header>
     )
 }
