@@ -13,8 +13,8 @@ export const ButtonColor = {
     link: 'link',
 }
 
-const Button = ({ text, color }) => {
-  return <button type="button" className={`btn btn-${color}`}>{text}</button>
+const Button = ({ text, color, onAdd }) => {
+  return <button type="button" className={`btn btn-${color}`} onClick={onAdd}>{text}</button>
 }
 
 Button.defaultProps = {
