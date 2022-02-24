@@ -15,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "npx json-server --watch server/db.json --port 5000"
   },
   "eslintConfig": {
     "extends": [
@@ -36,6 +37,8 @@
     ]
   },
   "devDependencies": {
-    "prop-types": "^15.8.1"
+    "json-server": "^0.17.0",
+    "prop-types": "^15.8.1",
+    "react-router-dom": "^6.2.1"
   }
 }
