@@ -2,6 +2,7 @@
   "name": "webdev-reactjs",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://webdevn-f.github.io/webdev-with-reactjs",
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
@@ -21,7 +22,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "static": "npm run build",
+    "deploy": "npm run static && gh-pages -d build -t true"
   },
   "eslintConfig": {
     "extends": [
