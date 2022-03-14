@@ -1,6 +1,9 @@
 ### In this project 
 
-We will build a React multi step form with multiple componenets including user & personal details, confirmation and success. We will use Material UI v5.5.0 as well
+We will build a React multi step form with multiple componenets including user & personal details, confirmation and success. 
+
+We will use Material UI v5.5.0 as well
+
 We had add an debouncedInput for TextField Material UI
 
 1. Tree Components:
