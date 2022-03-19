@@ -1,10 +1,8 @@
 ### In this project 
 
-We will build a React multi step form with multiple componenets including user & personal details, confirmation and success. 
+We will use React along with Material UI v5.5.0 to build an image finder application that uses the PixaBay API to fetch images based on a query string. 
 
-We will use Material UI v5.5.0 as well
-
-We had add an debouncedInput for TextField Material UI
+We will also implement a Dialog box from Material UI v5.5.0 to view the large image
 
 1. Tree Components:
 
@@ -12,16 +10,14 @@ We had add an debouncedInput for TextField Material UI
 - Methods: nextStep(), prevStep() & handleChange()
 - Components: 
 
-    - UserForm
-    - FormUserDetails
-    - FormPersonalDetails
-    - Confirm
-    - Success
+    - ImageFinderForm
+    - Dashboard
     - DebouncedInput
+    
 ### Scaffold React Application
 
 `
-    git clone --single-branch -b react-mui-step-form https://github.com/WebDevN-F/webdev-with-reactjs.git .
+    git clone --single-branch -b react-mui-using-pixabayapi https://github.com/WebDevN-F/webdev-with-reactjs.git .
 `
 
 ### Install dependencies [MUI v5.5.0](https://mui.com/getting-started/installation/)
@@ -29,6 +25,10 @@ We had add an debouncedInput for TextField Material UI
 `
     npm install
 `
+
+### SETUP ENV
+
+copy file `.env.local` to `.env.development.local` then update `KEY_PIXABAY_API=<YOUR API key>`
 
 ### Migration from V4 to V5
 

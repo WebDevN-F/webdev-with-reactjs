@@ -1,15 +1,23 @@
-import { Paper, Typography, AppBar, Toolbar, IconButton, Button, Box } from '@mui/material'
+import { Paper, Typography, AppBar, Toolbar, IconButton, Box } from '@mui/material'
 import React from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
+import Search from './Search';
 
-const Success = ({ prevStep }) => {
- 
-  const prevHandleClick = (e) => {
-    e.preventDefault();
-    prevStep();
-  }
+const Dashboard = () => {
+  const [searchQuery, setSearchQuery] = React.useState({
+    searchText: '',
+    amount: 15
+  });
 
-  const PrevButton = () => (<Button variant="outlined" color="primary" size="large" onClick={prevHandleClick}>Back</Button>)
+  const { searchText, amount } = searchQuery;
+  const values = { searchText, amount };
+
+  console.log(values)
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setSearchQuery({ ...searchQuery, [name]: value });
+  };
 
   return (
     <Paper elevation={2} sx={{ margin: '0 auto', flexGrow: 1 }}>
@@ -25,7 +33,7 @@ const Success = ({ prevStep }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Success!
+            PixaBay Image Finder
           </Typography>
         </Toolbar>
       </AppBar>
@@ -40,17 +48,11 @@ const Success = ({ prevStep }) => {
           minHeight: '200px'
         }}
       >
-        <Typography variant="h6" component="h1" sx={{ flexGrow: 1 }} color="Highlight">
-          Thanks you for your Submission!
-        </Typography>
-        <Typography variant="subtitle2" component="p" sx={{ flexGrow: 1 }} color="Highlight">
-          You will get an email with further instructions
-        </Typography>
-        <PrevButton />
+        <Search query={values} handleChange={handleChange} />
       </Box>
 
     </Paper>
   )
 }
 
-export default Success
+export default Dashboard
