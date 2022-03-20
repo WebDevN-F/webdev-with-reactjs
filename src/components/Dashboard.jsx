@@ -2,6 +2,10 @@ import { Paper, Typography, AppBar, Toolbar, IconButton, Box } from '@mui/materi
 import React from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
 import Search from './Search';
+import axios from 'axios';
+import ImageListPixabay from './ImageListPixabay';
+
+const keyAPI = process.env.REACT_APP_KEY_PIXABAY_API
 
 const Dashboard = () => {
   const [searchQuery, setSearchQuery] = React.useState({
@@ -9,15 +13,28 @@ const Dashboard = () => {
     amount: 15
   });
 
-  const { searchText, amount } = searchQuery;
-  const values = { searchText, amount };
-
-  console.log(values)
+  const [data, setData] = React.useState({})
+  const [loading, setLoading] = React.useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target
     setSearchQuery({ ...searchQuery, [name]: value });
   };
+
+  React.useEffect(() => {
+    const { searchText, amount } = searchQuery;
+    const fetchData = async () => {
+      setLoading(true)
+      try {
+        const { data } = await axios.get(`https://pixabay.com/api/?key=${keyAPI}&q=${searchText}&image_type=photo&per_page=${amount}`)
+        setData(data)
+      } catch (error) {
+        console.log(error)
+      }
+      setLoading(false)
+    }
+    fetchData();
+  }, [searchQuery])
 
   return (
     <Paper elevation={2} sx={{ margin: '0 auto', flexGrow: 1 }}>
@@ -48,7 +65,8 @@ const Dashboard = () => {
           minHeight: '200px'
         }}
       >
-        <Search query={values} handleChange={handleChange} />
+        <Search query={searchQuery} handleChange={handleChange} />
+        <ImageListPixabay data={data} loading={loading} />
       </Box>
 
     </Paper>
