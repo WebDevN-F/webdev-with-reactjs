@@ -9,6 +9,10 @@ This is an example React Monday CRM Clone application using a DataStax Astra DB 
 
 NodeJS REST API using express
 HTTP GET POST PUT DELETE Requests
+POST: `/api/v1/tickets`
+GET: `/api/v1/tickets`, `/api/v1/tickets/:id`
+DELETE `/api/v1/tickets/:id`
+PUT `/api/v1/tickets/:id`
 
 ### 2. Frontend Stack
 
