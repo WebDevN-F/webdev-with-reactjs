@@ -1,4 +1,4 @@
-# Monday CRM Clone - A JAMStack + Github Page + Astra DB
+# Monday CRM Clone
 
 # Overviews
 
@@ -8,16 +8,21 @@ This is an example React Monday CRM Clone application using a DataStax Astra DB 
 ### 1. API Endpoint
 
 NodeJS REST API using express
-HTTP GET POST PUT DELETE Requests
+
 POST: `/api/v1/tickets`
+
 GET: `/api/v1/tickets`, `/api/v1/tickets/:id`
+
 DELETE `/api/v1/tickets/:id`
+
 PUT `/api/v1/tickets/:id`
 
 ### 2. Frontend Stack
 
 [x] React + NodeJS + useContext Hook + [ReactRouter v6](https://reactrouter.com/docs/en/v6/upgrading/v5)
+
 [x] Handle Form Validation
+
 [x] Handle Case Not validated after form loaded the first time
 
 ### 3. Database Stack
@@ -28,13 +33,13 @@ DataStax Astra monday clone app that leverages the AstraDB REST API to manage a 
 
 - GET TOKEN KEY Astra DB to update file `development.env`
 
-` 
+```
     CLIENT_ID=<YOUR API key>
     CLIENT_SECRET=<YOUR API key>
     TOKEN=<YOUR API key>
     ADMIN_USER_TOKEN=<YOUR API key>
     BASE_API=<YOUR API key> // using for astra restAPI
-`
+```
 
 ### 4. Environment
 
@@ -49,9 +54,9 @@ Read more [Adding Custom Environment Variables](https://create-react-app.dev/doc
 - React App:
 - Server API: 
 
-### 6. Script NPM
+### 6. NPM RUN DEV
 
-- Start server API `npm run server:dev` for development
+- Start Server API `npm run server:dev` for development
 - Start React App `npm start` for development
 
 ### Upgrade to React18
