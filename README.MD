@@ -51,8 +51,8 @@ Read more [Adding Custom Environment Variables](https://create-react-app.dev/doc
 # ------------------------------------------------------------------------------------------------------------------------
 ### 5. Demo
 
-- React App:
-- Server API: 
+- React App: https://monday-crm-clone.herokuapp.com
+- Server API: https://monday-crm-clone-api.herokuapp.com
 
 ### 6. NPM RUN DEV
 
