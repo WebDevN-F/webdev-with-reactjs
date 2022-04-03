@@ -25,7 +25,7 @@
     "deploy": "gh-pages -d build -t true",
     "server": "nodemon -r dotenv/config server/index.js",
     "server:dev": "nodemon -r dotenv/config server/index.js dotenv_config_path=devevelopment.env dotenv_config_debug=true",
-    "server:prod": "node -r dotenv/config server/index.js"
+    "server:prod": "node server/index.js"
   },
   "eslintConfig": {
     "extends": [
