@@ -9,44 +9,83 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 
 const TOKEN = process.env.ADMIN_USER_TOKEN || 'token';
+const baseURL = process.env.BASE_API || 'http://localhost:5000';
 
-console.log(process.env.ADMIN_USER_TOKEN)
+console.log(TOKEN, baseURL);
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
 
-// add controllers
-
-const baseURL = 'https://dfef2532-d4c1-454f-9bed-74a05f5d8f3a-europe-west1.apps.astra.datastax.com';
+// endpoint to collections task
 const newCollection = '/api/rest/v2/namespaces/tickets/collections';
-const newTask = '/api/rest/v2/namespaces/tickets/collections/task';
+const collectionTask = '/api/rest/v2/namespaces/tickets/collections/task';
 
+const createRequest = axios.create({  
+  baseURL: baseURL,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    'X-Cassandra-Token': TOKEN
+  },
+  timeout: 1000
+})
+
+// add controllers
 /**
  * 
  */
 app.post(`/api/v1/tickets`, async (req, res) => {
 
-  const { formData } = req.body;
-  const options = {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'X-Cassandra-Token': TOKEN
-    },
-  }
+  const { data } = req.body;
 
   try {
-    var response = await axios.post(`${baseURL}${newTask}`, formData, options);
-    res.send(response.data);
+    var response = await createRequest.post(`${collectionTask}`, data);
+    res.status(200).send(response.data);
 
   } catch (error) {
     res.status(500).send({'err': error});
   }
 })
 
+app.get('/api/v1/tickets', async (req, res) => {
+  try {
+    var response = await createRequest.get(`${collectionTask}?page-size=20`);
+    res.status(200).send(response.data);
+  } catch (error) {
+    res.status(500).send({'err': error});
+  }
+})
 
-app.listen(PORT, () => {
+app.get('/api/v1/tickets/:id', async (req, res) => {
+  try {
+    var response = await createRequest.get(`${collectionTask}/${req.params.id}`);
+    res.status(200).send(response.data);
+  } catch (error) {
+    res.status(500).send({'err': error});
+  }
+})
+
+app.delete('/api/v1/tickets/:id', async (req, res) => {
+  try {
+    var response = await createRequest.delete(`${collectionTask}/${req.params.id}`);
+    res.status(200).send(response.data);
+  } catch (error) {
+    res.status(500).send({'err': error});
+  }
+})
+
+app.put('/api/v1/tickets/:id', async (req, res) => {
+  try {
+    var response = await createRequest.put(`${collectionTask}/${req.params.id}`, req.body.data);
+    res.status(200).send(response.data);
+  } catch (error) {
+    res.status(500).send({'err': error});
+  }
+})
+
+// running server
+app.listen(process.env.PORT || PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

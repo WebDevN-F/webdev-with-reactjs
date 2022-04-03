@@ -1,80 +1,61 @@
 import React from 'react'
 import TicketCard from '../components/TicketCard';
+import { tickets } from '../dummyData.js'
+import axios from 'axios'
+import CategoriesContext from '../contexts/appContext';
+import { Link } from 'react-router-dom';
+
+const BASE_URL = process.env.REACT_APP_BASE_API;
 
 const Dashboard = () => {
-  const tickets = [
-    {
-      category: 'Q1 2022',
-      id: 1,
-      color: 'red',
-      title: 'Build 100 day of code',
-      owner: 'Nam Ngu',
-      avatar: '/crm_logo.png',
-      status: 'in-progress',
-      priority: 5,
-      process: 40,
-      description: 'Make 100 demo of 100 day of code',
-      timestamp: '2022-02-11T07:36:17+0000'
-    },
-    {
-      category: 'Q2 2022',
-      id: 2,
-      color: 'blue',
-      title: 'Build 10 demo reactJS',
-      owner: 'Nam Ngu',
-      avatar: '/crm_logo.png',
-      status: 'done',
-      priority: 2,
-      process: 70,
-      description: 'Make 100 demo reactJS',
-      timestamp: '2022-03-31T07:36:17+0000'
-    },
-    {
-      category: 'Q3 2022',
-      id: 3,
-      color: 'blue',
-      title: 'Build 10 demo fullstack app',
-      owner: 'Nam Ngu',
-      avatar: '/crm_logo.png',
-      status: 'done',
-      priority: 3,
-      process: 70,
-      description: 'Build 10 demo fullstack app',
-      timestamp: '2022-03-31T07:36:17+0000'
-    },
-    {
-      category: 'Q3 2022',
-      id: 4,
-      color: 'blue',
-      title: 'Build 10 demo fullstack app Angular',
-      owner: 'Nam Ngu',
-      avatar: '/crm_logo.png',
-      status: 'stuck',
-      priority: 4,
-      process: 70,
-      description: 'Build 10 demo fullstack app',
-      timestamp: '2022-03-31T07:36:17+0000'
-    }
-  ]
+  const [tickets, setTickets] = React.useState(null);
+  const { categories, setCategories } = React.useContext(CategoriesContext);
 
-  const uniqueCategories = [
-    ...new Set(tickets?.map(ticket => (ticket.category)))
+  React.useEffect(async () => {
+    const response = await axios.get(`${BASE_URL}/tickets`);
+
+    const dataObject = response.data.data;
+    const arrayOfKey = Object.keys(dataObject)
+    const arrayOfData = Object.keys(dataObject).map(key => dataObject[key])
+    
+    const newTickets = arrayOfData.map((ticket, index) => {
+      return {
+        ...ticket,
+        documentId: arrayOfKey[index]
+      }
+    })
+
+    setTickets(newTickets);
+  }, [])
+
+  React.useEffect(() => {
+   setCategories([...new Set(tickets?.map(({category}) => category))]); 
+  }, [tickets])
+
+  const colors = [
+    '#f44336',
+    '#e91e63',
+    '#9c27b0',
+    '#673ab7',
+    '#3f51b5',
   ]
 
   return (
     <div className="dashboard">
       <h1>My Projects</h1>
       <div className="ticket-container">
-        {tickets && uniqueCategories?.map((uniqueCategory, categoryIndex) => (
+        {tickets && categories?.map((uniqueCategory, categoryIndex) => (
           <div key={categoryIndex}>
-            <h3>{uniqueCategory}</h3>
+            <h3 style={{marginBottom: '5px', marginTop: '5px'}}>{uniqueCategory}</h3>
             {tickets
               .filter(ticket => ticket.category === uniqueCategory)
               .map((ticketfiltered, ticketIndex) => (
-                <TicketCard key={ticketIndex} ticket={ticketfiltered} />
+                <TicketCard key={ticketfiltered.documentId} color={colors[ticketIndex] || colors[0]} ticket={ticketfiltered} />
               ))}
           </div>
         ))}
+        {!tickets && <h3>Loading...</h3>}
+        {tickets && tickets?.length == 0 && <h3>No ticket found, please <Link to='/ticket'><a>create new ticket</a></Link></h3>}
       </div>
     </div>
   )
