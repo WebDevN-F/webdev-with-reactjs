@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build:win": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build -- --env.NODE_ENV=production --env.BUILD_TARGET=win32",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
