@@ -62,3 +62,7 @@ Read more [Adding Custom Environment Variables](https://create-react-app.dev/doc
 ### Upgrade to React18
 
 https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html
+
+### Hide ReactJS Code From Browser
+
+https://capscode.hashnode.dev/hide-reactjs-code-from-browser#heading-1introduction
