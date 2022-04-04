@@ -1,6 +1,5 @@
 import React from 'react'
 import TicketCard from '../components/TicketCard';
-import { tickets } from '../dummyData.js'
 import axios from 'axios'
 import CategoriesContext from '../contexts/appContext';
 import { Link } from 'react-router-dom';
@@ -11,26 +10,29 @@ const Dashboard = () => {
   const [tickets, setTickets] = React.useState(null);
   const { categories, setCategories } = React.useContext(CategoriesContext);
 
-  React.useEffect(async () => {
-    const response = await axios.get(`${BASE_URL}/tickets`);
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(`${BASE_URL}/tickets`);
 
-    const dataObject = response.data.data;
-    const arrayOfKey = Object.keys(dataObject)
-    const arrayOfData = Object.keys(dataObject).map(key => dataObject[key])
-    
-    const newTickets = arrayOfData.map((ticket, index) => {
-      return {
-        ...ticket,
-        documentId: arrayOfKey[index]
-      }
-    })
+      const dataObject = response.data.data;
+      const arrayOfKey = Object.keys(dataObject)
+      const arrayOfData = Object.keys(dataObject).map(key => dataObject[key])
 
-    setTickets(newTickets);
+      const formatedData = arrayOfData.map((ticket, index) => {
+        return {
+          ...ticket,
+          documentId: arrayOfKey[index]
+        }
+      })
+  
+      setTickets(formatedData);
+    }
+    fetchData();    
   }, [])
 
   React.useEffect(() => {
    setCategories([...new Set(tickets?.map(({category}) => category))]); 
-  }, [tickets])
+  }, [tickets, setCategories])
 
   const colors = [
     '#f44336',
@@ -55,7 +57,7 @@ const Dashboard = () => {
           </div>
         ))}
         {!tickets && <h3>Loading...</h3>}
-        {tickets && tickets?.length == 0 && <h3>No ticket found, please <Link to='/ticket'><a>create new ticket</a></Link></h3>}
+        {tickets && tickets?.length === 0 && <h3>No ticket found, please <Link to='/ticket'><a href='/ticket'>create new ticket</a></Link></h3>}
       </div>
     </div>
   )
