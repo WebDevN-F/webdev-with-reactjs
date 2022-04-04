@@ -8,32 +8,23 @@ const BASE_URL = process.env.REACT_APP_BASE_API;
 const TicketPage = ({editMode = false}) => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const { categories } = React.useContext(CategoriesContext);
   const [formData, setFormData] = React.useState({
     title: '',
     priority: 1,
-    category: '',
+    category: categories ? categories[0] || '' : '',
     description: '',
     process: 0,
     owner: 'Nam Nguyen',
     email: '',
     avatar: '/crm_logo.png',
-    status: 'done',
+    status: '',
     timestamp: new Date().toISOString(),
   })
-
-  const [validated, setValidated] = React.useState(false)
-
-  React.useEffect(() => {
-
-    handleValidation();
-
-  }, [validated, formData.title, formData.email])
 
   const form = React.useRef(null);
 
   const [errors, setErrors] = React.useState({})
-
-  const { categories, setCategories } = React.useContext(CategoriesContext);
 
   const handleValidation = () => {
     // follows questions https://stackoverflow.com/questions/41296668/how-do-i-add-validation-to-the-form-in-my-react-component
@@ -68,7 +59,7 @@ const TicketPage = ({editMode = false}) => {
         !(
           lastAtPos < lastDotPos &&
           lastAtPos > 0 &&
-          fields["email"].indexOf("@@") == -1 &&
+          fields["email"].indexOf("@@") === -1 &&
           lastDotPos > 2 &&
           fields["email"].length - lastDotPos > 2
         )
@@ -93,7 +84,6 @@ const TicketPage = ({editMode = false}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setValidated(true);
     if (handleValidation()) {
       console.log('submit', JSON.stringify(formData));
       // tickets
@@ -117,20 +107,57 @@ const TicketPage = ({editMode = false}) => {
       }
     }
   }
-
-  const fetchTicket = async () => {
-    const response = await axios.get(`${BASE_URL}/tickets/${id}`);
-    const success = response.status === 200;
-    if (success) {
-      setFormData(response.data.data);
-    }
-  }
   
   React.useEffect(() => {
-    if (editMode) {
-      fetchTicket();
+    const fetchTicket = async () => {
+      const response = await axios.get(`${BASE_URL}/tickets/${id}`);
+      const success = response.status === 200;
+      if (success) {
+        setFormData(response.data.data);
+      }
     }
-  }, [])
+    if (editMode) {
+     fetchTicket();
+    }
+  }, [editMode, id])
+
+  React.useEffect(() => {
+   const validationForm = () => {
+    console.log('validating')
+
+    let fields = formData;
+    let errors = {};
+
+    //Name
+    if (!fields["title"] || fields["title"] === '') {
+      errors["title"] = "Cannot be empty";
+    }
+
+    //Email
+    if (!fields["email"] || fields["email"] === '') {
+      errors["email"] = "Cannot be empty";
+    }
+
+    if (typeof fields["email"] !== "undefined" && fields["email"] !== '') {
+      let lastAtPos = fields["email"].lastIndexOf("@");
+      let lastDotPos = fields["email"].lastIndexOf(".");
+
+      if (
+        !(
+          lastAtPos < lastDotPos &&
+          lastAtPos > 0 &&
+          fields["email"].indexOf("@@") === -1 &&
+          lastDotPos > 2 &&
+          fields["email"].length - lastDotPos > 2
+        )
+      ) {
+        errors["email"] = "Email is not valid";
+      }
+    }
+    setErrors(errors);
+   }
+   validationForm();
+  }, [formData])
 
   return (
     <div className="ticket">
@@ -161,7 +188,7 @@ const TicketPage = ({editMode = false}) => {
             <select name="category" id="category"
               onChange={handleChange}
               value={formData.category}>
-              <option value="">Select a category</option>
+              <option value="" disabled>Select a category</option>
               {categories?.map((cat, index) => (
                 <option key={index} value={cat}>{cat}</option>
               ))}
@@ -243,7 +270,8 @@ const TicketPage = ({editMode = false}) => {
             
             <label htmlFor="status">Status</label>
             <select name="status" id="status" value={formData.status} onChange={handleChange}>
-              <option value="not-started" selected>not-started</option>
+              <option value="" disabled>Select a status</option>
+              <option value="not-started">Not started</option>
               <option value="in-progress">In Progress</option>
               <option value="done">Done</option>
               <option value="stuck">Stuck</option>
